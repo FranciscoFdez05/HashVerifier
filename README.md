@@ -60,4 +60,4 @@ Contributions are welcome. If you wish to contribute, please follow these steps:
 
 ---
 
-**Developed with ❤️ by [Francisco](https://github.com/QUIENTRAEHIEL0)**
+**Developed with ❤️ by [Francisco](https://github.com/Farlopitec)**
