@@ -81,4 +81,4 @@ Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
 
 ---
 
-**Developed with ❤️ by [Francisco](https://github.com/QUIENTRAEHIEL0)**
+**Developed with ❤️ by [Francisco](https://github.com/Farlopitec)**
