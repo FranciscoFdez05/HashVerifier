@@ -1,8 +1,8 @@
-[🇪🇸 Español](README-ESP.md) | [🇬🇧 English](README.md)
+[🇪🇸 Español](README-ESP.md) | [🇬🇧 English](../README.md)
 # 🛠️ HashVerifier
 HashVerifier es una aplicación de Windows Forms en C# que permite calcular y verificar hashes de archivos utilizando varios algoritmos de hash, con una interfaz intuitiva y funcional. Es ideal para verificar la integridad de archivos y asegurarse de que no han sido alterados.
 
-![Vista Principal de HashVerifier](img/imgPrincipal.png)
+![Vista Principal de HashVerifier](../img/imgPrincipal.png)
 
 ## 🚀 Descripción
 HashVerifier permite calcular y verificar hashes de archivos utilizando varios algoritmos: **MD5, SHA-1, SHA-224, SHA-256, SHA-384** y **SHA-512**.
@@ -20,13 +20,13 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 ## ⚙️ Instalación
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/FranciscoFdez05/HashVerifier.git
+   git clone https://github.com/QUIENTRAEHIEL0/HashVerifier.git
    ```
 3. Navega al directorio del proyecto: `cd HashVerifier`
 
 ### Compilación en Visual Studio
 1. Abre el archivo del proyecto (`HashVerifier.sln`) en Visual Studio.
-2. Compila la aplicación seleccionando **Compilar > Compilar Solución**.
+2. Compila la aplicación seleccionando **Build > Build Solution**.
 3. Ejecuta la aplicación desde el entorno de Visual Studio o mediante el archivo `.exe` generado en la carpeta `bin`.
 
 ### Compilación desde la línea de comandos (usando .NET CLI)
@@ -36,42 +36,34 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
    O, si prefieres ejecutarla desde el archivo compilado, navega a la carpeta `bin/Debug/net472` (o `Release` si usaste la opción de compilación de release) y ejecuta el archivo `.exe` correspondiente.
 
 ### 📋 Calcular un hash 
-1. Selecciona el archivo que deseas hashear utilizando el botón **"Fichero a hashear"**.
+1. Selecciona el archivo que deseas hashear utilizando el botón **"Source file"**.
+![Selección de Archivo y Algoritmo](../img/imgExam1.png)
 
-   ![Selección de Archivo y Algoritmo](img/imgExam1.png)
-
-2. Indica la ruta donde quieres guardar el hash utiliza el botón **"Fichero hasheado"**.
-
-   ![Selección de Archivo y Algoritmo](img/imgExam2.png)
-
-3. Selecciona el algoritmo de hash en el menú desplegable **"algoritmo del hash"**.
+2. Selecciona el algoritmo de hash en el menú desplegable **"Hash algorithm"**.   
+![Selección de Archivo y Algoritmo](../img/imgAlgoritmo.png)
    
-   ![Selección de Archivo y Algoritmo](img/imgAlgoritmo.png)
-   
-4. Haz clic en **"Hashear"** para calcular el hash del archivo seleccionado.
+3. Haz clic en **"Hash"** para calcular el hash del archivo seleccionado.
+![Cálculo del Hash](../img/imgCalcHash.png)
 
-   ![Cálculo del Hash](img/imgCalcHash.png)
-
-5. El hash calculado se guarda en la ruta selecionada 
+4. El hash calculado se muestra y se copia en el portapapeles
+![[imgHashCalc.png]]
 
 ### 📋 Verificar un hash
-  
-1. Para verificar un hash, selecciona el fichero fuente (El fichero que desea calcualar el hash) **"Fichero fuente"**.
+1. Para verificar un hash, selecciona el fichero fuente (El fichero que desea calcular el hash) **"Check file"**.
+![Verificación de Hash](../img/imgFuente.png) 
 
-   ![Verificación de Hash](img/imgFuente.png) 
+2. Para verificar el hash, debes copiar el hash en el `text box` (dentro del rectangular rojo)
+![Verificación de Hash](../img/imgHash.png) 
 
-2. Para verificar el hash, debes guardar el hash real en un fichero.txt he indicarlo utilizando el botón **"Fichero hash"**.
+3. Selecciona el algoritmo del hash en el menú desplegable **"Hash algorithm"**.
+![Selección de Archivo y Algoritmo](../img/imgAlgoritmo2.png)
 
-   ![Verificación de Hash](img/imgHash.png) 
+4. Para terminar la verificación debes darle a **"Verify"** y te mostrara el resultado en una ventana emergente.
+![Verificación de Hash](../img/imgHashVerifi.png)
 
-3. Selecciona el algoritmo de hash en el menú desplegable **"algoritmo del hash"**.
-   
-   ![Selección de Archivo y Algoritmo](img/imgAlgoritmo2.png)
-
-4. Para terminar la verificacion debes darle a **"Verificar"** y te mostrara el resultado en una ventana emergente.
-
-   ![Verificación de Hash](img/imgHashVerifi.png)
-
+###  🗑️ Limpiar
+- Para limpiar la information puedes pulsar el el botón (`clear`)
+![[imgClear.png]]
 ## 🤝 Contribuir
 Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
 1. Haz un fork del repositorio.
@@ -82,4 +74,4 @@ Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
 
 ---
 
-**Developed with ❤️ by [Francisco](https://github.com/FARLOPITEC)**
+**Developed with ❤️ by [Francisco](https://github.com/FranciscoFdez05)**
