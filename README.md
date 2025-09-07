@@ -58,7 +58,7 @@ HashVerifier allows you to calculate and verify file hashes using several algori
 ![Hash Calculation](img/imgCalcHash.png)
 
 4. The calculated hash is displayed and copied to the clipboard.  
-![[imgHashCalc.png]]
+![imgHashCalc.png](img/imgHashCalc.png)
 
 ### 📋 Verify a hash
 1. To verify a hash, select the source file (the file you want to calculate the hash from) with **"Check file"**.
