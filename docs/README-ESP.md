@@ -59,6 +59,7 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 ![Selección de Archivo y Algoritmo](../img/imgAlgoritmo2.png)
 
 4. Para terminar la verificación debes darle a **"Verify"** y te mostrara el resultado en una ventana emergente.
+- `Hash mach` Significa que los hashes coinciden
 ![Verificación de Hash](../img/imgHashVerifi.png)
 
 ###  🗑️ Limpiar
