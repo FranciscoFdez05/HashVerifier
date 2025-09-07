@@ -1,3 +1,4 @@
+[🇪🇸 Español](README-ESP.md) | [🇬🇧 English](README.md)
 # 🛠️ HashVerifier
 HashVerifier es una aplicación de Windows Forms en C# que permite calcular y verificar hashes de archivos utilizando varios algoritmos de hash, con una interfaz intuitiva y funcional. Es ideal para verificar la integridad de archivos y asegurarse de que no han sido alterados.
 
