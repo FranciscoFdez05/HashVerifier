@@ -72,7 +72,7 @@ HashVerifier allows you to calculate and verify file hashes using several algori
 
 4. To complete the verification, click on **"Verify"** and the result will be displayed in a pop-up window.
 - `Hash match` It means that the hashes match
-![Verificación de Hash(img/imgHashVerifi.png)
+![Verificación de Hash](img/imgHashVerifi.png)
 - `Error: hashes do not match` It means that the hashes do not match
 ![Verificación de Hash](img/imgErrorHash.png)
 
