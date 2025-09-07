@@ -5,7 +5,7 @@ HashVerifier is a Windows Forms application in C# that allows you to calculate a
 ![HashVerifier Main View](img/imgPrincipal.png)
 
 ## 🚀 Description
-HashVerifier allows you to calculate and verify file hashes using several algorithms: **MD5, SHA-1, SHA-224, SHA-256, SHA-384** and **SHA-512**.
+HashVerifier allows you to calculate and verify file hashes using several algorithms: **MD5, SHA-1, SHA-256, SHA-384** and **SHA-512**.
 
 ## ✨ Features
 - 📂 File selection to calculate its hash.
