@@ -20,7 +20,7 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 ## ⚙️ Instalación
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/QUIENTRAEHIEL0/HashVerifier.git
+   git clone https://github.com/FranciscoFdez05/HashVerifier.git
    ```
 3. Navega al directorio del proyecto: `cd HashVerifier`
 
