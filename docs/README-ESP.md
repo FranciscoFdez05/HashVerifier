@@ -46,7 +46,7 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 ![Cálculo del Hash](../img/imgCalcHash.png)
 
 4. El hash calculado se muestra y se copia en el portapapeles
-(![imgHashCalc.png](img/imgHashCalc.png)
+(![imgHashCalc.png](../img/imgHashCalc.png)
 
 ### 📋 Verificar un hash
 1. Para verificar un hash, selecciona el fichero fuente (El fichero que desea calcular el hash) **"Check file"**.
