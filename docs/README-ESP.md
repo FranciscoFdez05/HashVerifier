@@ -61,6 +61,8 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 4. Para terminar la verificación debes darle a **"Verify"** y te mostrara el resultado en una ventana emergente.
 - `Hash match` Significa que los hashes coinciden
 ![Verificación de Hash](../img/imgHashVerifi.png)
+- `Error: hashes do not match` Significa q no coinciden los hashes
+![Verificación de Hash](../img/imgErrorHash.png)
 
 ###  🗑️ Limpiar
 - Para limpiar la information puedes pulsar el el botón (`clear`)
