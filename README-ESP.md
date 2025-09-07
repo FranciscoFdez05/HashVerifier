@@ -26,7 +26,7 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 
 ### Compilación en Visual Studio
 1. Abre el archivo del proyecto (`HashVerifier.sln`) en Visual Studio.
-2. Compila la aplicación seleccionando **Build > Build Solution**.
+2. Compila la aplicación seleccionando **Compilar > Compilar Solución**.
 3. Ejecuta la aplicación desde el entorno de Visual Studio o mediante el archivo `.exe` generado en la carpeta `bin`.
 
 ### Compilación desde la línea de comandos (usando .NET CLI)
