@@ -34,12 +34,12 @@
             button_SelectFile = new Button();
             button_SelectFileHash = new Button();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            textBox_checkhash = new TextBox();
             button_Verify = new Button();
             comboBox_hashAlogrithm = new ComboBox();
             label2 = new Label();
             button_examinarFileHash = new Button();
-            textBox4 = new TextBox();
+            textBox_SourceHash = new TextBox();
             button_clear = new Button();
             label3 = new Label();
             label1 = new Label();
@@ -49,12 +49,12 @@
             // 
             // button_ExaminarFileToHash
             // 
-            button_ExaminarFileToHash.Location = new Point(23, 54);
+            button_ExaminarFileToHash.Location = new Point(41, 54);
             button_ExaminarFileToHash.Margin = new Padding(3, 2, 3, 2);
             button_ExaminarFileToHash.Name = "button_ExaminarFileToHash";
-            button_ExaminarFileToHash.Size = new Size(109, 20);
+            button_ExaminarFileToHash.Size = new Size(91, 23);
             button_ExaminarFileToHash.TabIndex = 0;
-            button_ExaminarFileToHash.Text = "Fichero a hashear";
+            button_ExaminarFileToHash.Text = "Source file";
             button_ExaminarFileToHash.UseVisualStyleBackColor = true;
             button_ExaminarFileToHash.Click += button1_Click_1;
             // 
@@ -74,29 +74,29 @@
             button_hashear.Name = "button_hashear";
             button_hashear.Size = new Size(402, 39);
             button_hashear.TabIndex = 2;
-            button_hashear.Text = "Hashear";
+            button_hashear.Text = "Hash";
             button_hashear.UseVisualStyleBackColor = true;
             button_hashear.Click += button2_Click;
             // 
             // button_SelectFile
             // 
-            button_SelectFile.Location = new Point(23, 226);
+            button_SelectFile.Location = new Point(41, 223);
             button_SelectFile.Margin = new Padding(3, 2, 3, 2);
             button_SelectFile.Name = "button_SelectFile";
-            button_SelectFile.Size = new Size(109, 20);
+            button_SelectFile.Size = new Size(91, 23);
             button_SelectFile.TabIndex = 4;
-            button_SelectFile.Text = "Fichero fuente";
+            button_SelectFile.Text = "Check file";
             button_SelectFile.UseVisualStyleBackColor = true;
             button_SelectFile.Click += button3_Click;
             // 
             // button_SelectFileHash
             // 
-            button_SelectFileHash.Location = new Point(23, 272);
+            button_SelectFileHash.Location = new Point(41, 270);
             button_SelectFileHash.Margin = new Padding(3, 2, 3, 2);
             button_SelectFileHash.Name = "button_SelectFileHash";
-            button_SelectFileHash.Size = new Size(109, 22);
+            button_SelectFileHash.Size = new Size(91, 23);
             button_SelectFileHash.TabIndex = 5;
-            button_SelectFileHash.Text = "Fichero hash";
+            button_SelectFileHash.Text = "Copy";
             button_SelectFileHash.UseVisualStyleBackColor = true;
             button_SelectFileHash.Click += button4_Click;
             // 
@@ -108,13 +108,13 @@
             textBox2.Size = new Size(402, 23);
             textBox2.TabIndex = 6;
             // 
-            // textBox3
+            // textBox_checkhash
             // 
-            textBox3.Location = new Point(138, 271);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(402, 23);
-            textBox3.TabIndex = 7;
+            textBox_checkhash.Location = new Point(138, 271);
+            textBox_checkhash.Margin = new Padding(3, 2, 3, 2);
+            textBox_checkhash.Name = "textBox_checkhash";
+            textBox_checkhash.Size = new Size(402, 23);
+            textBox_checkhash.TabIndex = 7;
             // 
             // button_Verify
             // 
@@ -123,7 +123,7 @@
             button_Verify.Name = "button_Verify";
             button_Verify.Size = new Size(402, 39);
             button_Verify.TabIndex = 8;
-            button_Verify.Text = "Verificar";
+            button_Verify.Text = "Verify";
             button_Verify.UseVisualStyleBackColor = true;
             button_Verify.Click += button_Verify_Click;
             // 
@@ -140,32 +140,32 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(551, 30);
+            label2.Location = new Point(561, 37);
             label2.Name = "label2";
-            label2.Size = new Size(109, 15);
+            label2.Size = new Size(89, 15);
             label2.TabIndex = 10;
-            label2.Text = "algoridmo del hash";
+            label2.Text = "Hash algorithm";
             label2.Click += label2_Click;
             // 
             // button_examinarFileHash
             // 
-            button_examinarFileHash.Location = new Point(23, 105);
+            button_examinarFileHash.Location = new Point(41, 103);
             button_examinarFileHash.Margin = new Padding(3, 2, 3, 2);
             button_examinarFileHash.Name = "button_examinarFileHash";
-            button_examinarFileHash.Size = new Size(109, 20);
+            button_examinarFileHash.Size = new Size(91, 23);
             button_examinarFileHash.TabIndex = 11;
-            button_examinarFileHash.Text = "Fichero hasheado";
+            button_examinarFileHash.Text = "Copy";
             button_examinarFileHash.UseVisualStyleBackColor = true;
             button_examinarFileHash.Click += button_examinarFileHash_Click_1;
             // 
-            // textBox4
+            // textBox_SourceHash
             // 
-            textBox4.Location = new Point(138, 104);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(402, 23);
-            textBox4.TabIndex = 12;
-            textBox4.TextChanged += textBox4_TextChanged;
+            textBox_SourceHash.Location = new Point(138, 104);
+            textBox_SourceHash.Margin = new Padding(3, 2, 3, 2);
+            textBox_SourceHash.Name = "textBox_SourceHash";
+            textBox_SourceHash.Size = new Size(402, 23);
+            textBox_SourceHash.TabIndex = 12;
+            textBox_SourceHash.TextChanged += textBox4_TextChanged;
             // 
             // button_clear
             // 
@@ -173,28 +173,28 @@
             button_clear.Name = "button_clear";
             button_clear.Size = new Size(89, 39);
             button_clear.TabIndex = 14;
-            button_clear.Text = "Limpiar";
+            button_clear.Text = "Clear";
             button_clear.UseVisualStyleBackColor = true;
             button_clear.Click += button_clear_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(170, 87);
+            label3.Location = new Point(138, 87);
             label3.Name = "label3";
-            label3.Size = new Size(262, 15);
+            label3.Size = new Size(89, 15);
             label3.TabIndex = 13;
-            label3.Text = "Introduce donde quieres guardar el archivo hash";
+            label3.Text = "Generated hash";
             label3.Click += label3_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(170, 30);
+            label1.Location = new Point(138, 37);
             label1.Name = "label1";
-            label1.Size = new Size(278, 15);
+            label1.Size = new Size(99, 15);
             label1.TabIndex = 3;
-            label1.Text = "Introduce el archivo a hashear, para obtener el hash";
+            label1.Text = "Select file to hash";
             label1.Click += label1_Click;
             // 
             // label4
@@ -202,18 +202,18 @@
             label4.AutoSize = true;
             label4.Location = new Point(138, 254);
             label4.Name = "label4";
-            label4.Size = new Size(201, 15);
+            label4.Size = new Size(108, 15);
             label4.TabIndex = 15;
-            label4.Text = "Introduce un .txt con el hash original";
+            label4.Text = "Enter hash to verify";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(138, 206);
             label5.Name = "label5";
-            label5.Size = new Size(183, 15);
+            label5.Size = new Size(103, 15);
             label5.TabIndex = 16;
-            label5.Text = "Introduce el archivo a comprobar";
+            label5.Text = "Select file to verify";
             // 
             // Form1
             // 
@@ -224,12 +224,12 @@
             Controls.Add(label4);
             Controls.Add(button_clear);
             Controls.Add(label3);
-            Controls.Add(textBox4);
+            Controls.Add(textBox_SourceHash);
             Controls.Add(button_examinarFileHash);
             Controls.Add(label2);
             Controls.Add(comboBox_hashAlogrithm);
             Controls.Add(button_Verify);
-            Controls.Add(textBox3);
+            Controls.Add(textBox_checkhash);
             Controls.Add(textBox2);
             Controls.Add(button_SelectFileHash);
             Controls.Add(button_SelectFile);
@@ -252,12 +252,12 @@
         private Button button_SelectFile;
         private Button button_SelectFileHash;
         private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox textBox_checkhash;
         private Button button_Verify;
         private ComboBox comboBox_hashAlogrithm;
         private Label label2;
         private Button button_examinarFileHash;
-        private TextBox textBox4;
+        private TextBox textBox_SourceHash;
         private Button button_clear;
         private Label label3;
         private Label label1;

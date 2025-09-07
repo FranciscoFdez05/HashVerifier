@@ -1,5 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace HashVerifier
 {
@@ -15,80 +17,14 @@ namespace HashVerifier
 
         private void InitializeComboBox()
         {
-            comboBox_hashAlogrithm.Items.AddRange(new string[] { "md5", "sha1", "sha224", "sha256", "sha384", "sha512" });
+            // sha224 fuera: no está soportado de serie en .NET
+            comboBox_hashAlogrithm.Items.AddRange(new string[] { "md5", "sha1", "sha256", "sha384", "sha512" });
             comboBox_hashAlogrithm.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            using (OpenFileDialog openDialog = new())
-            {
-                openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
-                openDialog.Multiselect = false;
-
-                if (openDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openDialog.FileName;
-
-                    Button source = (Button)sender;
-                    switch (source.Name)
-                    {
-                        case "button1":
-                            this.textBox1.Text = filePath;
-                            break;
-                        case "button2":
-                            this.textBox2.Text = filePath;
-                            break;
-                        case "button3":
-                            this.textBox3.Text = filePath;
-                            break;
-                    }
-                }
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openDialog = new())
-            {
-                openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
-                openDialog.Multiselect = false;
-
-                if (openDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openDialog.FileName;
-                    this.textBox1.Text = filePath; // Mostrar la ruta del archivo en textBox1
-                }
-            }
-        }
-
-        private void button_examinarFileHash_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openDialog = new())
-            {
-                openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
-                openDialog.Multiselect = false;
-
-                if (openDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openDialog.FileName;
-                    this.textBox4.Text = filePath;
-                }
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            // Mostrar la ruta del archivo en textBox1
-            this.textBox1.Text = ((TextBox)sender).Text;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            // Implementar si es necesario
+            selectedHashAlgorithm = comboBox_hashAlogrithm.SelectedItem?.ToString();
         }
 
         private byte[] ComputeHash(string filePath, string hashAlgorithm)
@@ -109,49 +45,6 @@ namespace HashVerifier
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            selectedHashAlgorithm = comboBox_hashAlogrithm.SelectedItem?.ToString();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            // Implementar si es necesario
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            // Implementar si es necesario
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // al darle al botton que hashe el archivo de la ruta textBox1 en la ruta del textBox4
-            if (string.IsNullOrEmpty(this.textBox1.Text) || string.IsNullOrEmpty(this.textBox4.Text))
-            {
-                MessageBox.Show("Por favor, selecciona las rutas de los archivos.");
-                return;
-            }
-
-            if (selectedHashAlgorithm == null)
-            {
-                MessageBox.Show("Por favor, selecciona un algoritmo de hash.");
-                return;
-            }
-
-            try
-            {
-                byte[] hashedBytes = this.ComputeHash(this.textBox1.Text, selectedHashAlgorithm);
-                string hexHash = ConvertToHex(hashedBytes);
-                File.WriteAllText(this.textBox4.Text, hexHash);
-                MessageBox.Show("Archivo hasheado y guardado correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al hashear el archivo: {ex.Message}");
-            }
-        }
-
         private string ConvertToHex(byte[] hashBytes)
         {
             StringBuilder hex = new StringBuilder(hashBytes.Length * 2);
@@ -162,109 +55,159 @@ namespace HashVerifier
             return hex.ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        // Botón "Source file"
+        private void button1_Click_1(object sender, EventArgs e)
         {
             using (OpenFileDialog openDialog = new())
             {
                 openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
+                openDialog.Title = "Select source file";
                 openDialog.Multiselect = false;
 
                 if (openDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string filePath = openDialog.FileName;
-                    this.textBox2.Text = filePath;
+                    textBox1.Text = openDialog.FileName;
                 }
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            using (OpenFileDialog openDialog = new())
-            {
-                openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
-                openDialog.Multiselect = false;
-
-                if (openDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openDialog.FileName;
-                    this.textBox3.Text = filePath;
-                }
-            }
+            textBox1.Text = ((TextBox)sender).Text;
         }
 
-        private void button_Verify_Click(object sender, EventArgs e)
+        // Botón "Hash" (button_hashear -> Click += button2_Click)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (selectedHashAlgorithm == null)
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Por favor, selecciona un algoritmo de hash.");
+                MessageBox.Show("Select file to hash (Source file)");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(selectedHashAlgorithm))
+            {
+                MessageBox.Show("Select a hash algorithm");
                 return;
             }
 
             try
             {
-                byte[] sourceHashedBytes = this.ComputeHash(this.textBox2.Text, selectedHashAlgorithm);
-                string sourceHexHash = ConvertToHex(sourceHashedBytes);
-                string verificationHexHash = File.ReadAllText(this.textBox3.Text);
+                byte[] hashedBytes = ComputeHash(textBox1.Text, selectedHashAlgorithm!);
+                string hexHash = ConvertToHex(hashedBytes);
 
-                if (sourceHexHash == verificationHexHash)
-                {
-                    MessageBox.Show("Los hashes coinciden.");
-                }
-                else
-                {
-                    MessageBox.Show("Error: los hashes no coinciden.");
-                }
+                // Mostrar en textBox_SourceHash
+                textBox_SourceHash.Text = hexHash;
+
+                // Copiar al portapapeles
+                Clipboard.SetText(hexHash);
+
+                MessageBox.Show("Hash generated and copied to clipboard");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al verificar el hash: {ex.Message}");
+                MessageBox.Show($"Error hashing the file: {ex.Message}");
             }
         }
 
-        private bool AreArraysIdentical(byte[] array1, byte[] array2)
-        {
-            if (array1.Length != array2.Length)
-                return false;
-
-            for (int i = 0; i < array1.Length; i++)
-            {
-                if (array1[i] != array2[i])
-                    return false;
-            }
-
-            return true;
-        }
-
-        private void button_examinarFileHash_Click_1(object sender, EventArgs e)
+        // Botón "Check file"
+        private void button3_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openDialog = new())
             {
                 openDialog.Filter = "All files|*.*";
-                openDialog.Title = "Open a file to be hashed";
+                openDialog.Title = "Select file to verify";
                 openDialog.Multiselect = false;
 
                 if (openDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string filePath = openDialog.FileName;
-                    this.textBox4.Text = filePath; // Mostrar la ruta del archivo en textBox4
+                    textBox2.Text = openDialog.FileName;
                 }
+            }
+        }
+
+        // Botón "Copy" de la sección inferior: pega desde portapapeles al textBox_checkhash
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                textBox_checkhash.Text = Clipboard.GetText();
+                MessageBox.Show("Hash pasted from clipboard into the verification field");
+            }
+            else
+            {
+                MessageBox.Show("No text in clipboard to paste as hash");
+            }
+        }
+
+        // Botón "Verify"
+        private void button_Verify_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(selectedHashAlgorithm))
+            {
+                MessageBox.Show("Select a hash algorithm");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show("Select the file to verify (Check file)");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox_checkhash.Text))
+            {
+                MessageBox.Show("Enter or paste the reference hash");
+                return;
+            }
+
+            try
+            {
+                byte[] sourceHashedBytes = ComputeHash(textBox2.Text, selectedHashAlgorithm!);
+                string sourceHexHash = ConvertToHex(sourceHashedBytes);
+
+                string pasted = textBox_checkhash.Text.Trim();
+                pasted = Regex.Replace(pasted, @"[^0-9a-fA-F]", "");
+
+                bool match = string.Equals(sourceHexHash, pasted, StringComparison.OrdinalIgnoreCase);
+
+                MessageBox.Show(match ? "Hashes match" : "Error: hashes do not match");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error verifying hash: {ex.Message}");
+            }
+        }
+
+        // Botón "Copy" de la sección superior: copia textBox_SourceHash al portapapeles
+        private void button_examinarFileHash_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox_SourceHash.Text))
+            {
+                Clipboard.SetText(textBox_SourceHash.Text);
+                MessageBox.Show("Hash copied to clipboard");
+            }
+            else
+            {
+                MessageBox.Show("No hash to copy");
             }
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            // Mostrar la ruta del archivo en textBox4
-            this.textBox4.Text = ((TextBox)sender).Text;
+            textBox_SourceHash.Text = ((TextBox)sender).Text;
         }
+
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            this.textBox1.Clear();
-            this.textBox2.Clear();
-            this.textBox3.Clear();
-            this.textBox4.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox_checkhash.Clear();
+            textBox_SourceHash.Clear();
         }
     }
 }
