@@ -66,7 +66,7 @@ HashVerifier permite calcular y verificar hashes de archivos utilizando varios a
 
 ###  🗑️ Limpiar
 - Para limpiar la information puedes pulsar el el botón (`clear`)
-![[imgClear.png]]
+![imgClear.png](../img/imgClear.png)
 ## 🤝 Contribuir
 Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
 1. Haz un fork del repositorio.
