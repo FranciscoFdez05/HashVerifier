@@ -10,7 +10,6 @@ HashVerifier allows you to calculate and verify file hashes using several algori
 ## ✨ Features
 - 📂 File selection to calculate its hash.
 - 🔍 Selection of the hash algorithm.
-- 💾 Save the calculated hash into a file.
 - ✅ Verify if the calculated hash matches a given hash.
 - 👤 Simple and easy-to-use graphical user interface.
 
