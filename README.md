@@ -77,7 +77,7 @@ HashVerifier allows you to calculate and verify file hashes using several algori
 
 ### 🗑️ Clear
 - To clear the information, you can click the (`clear`) button.  
-![imgClear.png](img/imgClear.png)
+![imgClear.png](img/imgClear.png)   
 
 ## 🤝 Contributing
 Contributions are welcome. If you want to contribute, follow these steps:
