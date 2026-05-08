@@ -14,12 +14,12 @@ HashVerifier allows you to calculate and verify file hashes using several algori
 - 👤 Simple and easy-to-use graphical user interface.
 
 ## 🖥️ Requirements
-- .NET Framework 4.7.2 or higher
+- .NET 8.0 or higher
 
 ## ⚙️ Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/QUIENTRAEHIEL0/HashVerifier.git
+   git clone https://github.com/FranciscoFdez05/HashVerifier.git
    ```
 2. Navigate to the project directory: 
    ```bash
