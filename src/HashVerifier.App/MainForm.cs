@@ -11,6 +11,9 @@ public partial class MainForm : Form
     private static readonly Color MatchColor = Color.FromArgb(0, 128, 0);
     private static readonly Color MismatchColor = Color.FromArgb(192, 0, 0);
 
+    /// <summary>Product version from Directory.Build.props, e.g. "2.0.0".</summary>
+    private static readonly string AppVersion = typeof(MainForm).Assembly.GetName().Version?.ToString(3) ?? "";
+
     private CancellationTokenSource? _cts;
     private int _generatedHashExtraLines;
 
@@ -41,7 +44,7 @@ public partial class MainForm : Form
 
     private void ApplyLocalization()
     {
-        Text = Strings.AppTitle;
+        Text = $"{Strings.AppTitle} v{AppVersion}";
         label_algorithm.Text = Strings.Algorithm;
         label_language.Text = Strings.Language;
         groupBox_generate.Text = Strings.GenerateGroup;

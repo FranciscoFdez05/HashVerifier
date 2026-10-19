@@ -5,8 +5,9 @@
 .DESCRIPTION
     Without -Publish, restores, builds and runs the unit tests.
     With -Publish, also produces self-contained single-file executables for the
-    GUI and the CLI in ./artifacts/<runtime>, plus a .zip and SHA256SUMS file
-    ready to attach to a GitHub release.
+    GUI and the CLI, and copies them to ./artifacts with the version in the name
+    (HashVerifier-<version>-<runtime>.exe), plus a SHA256SUMS file, ready to attach
+    to a GitHub release.
 
 .EXAMPLE
     ./scripts/build.ps1
@@ -64,16 +65,23 @@ if ($Publish) {
     Invoke-Step 'Publish GUI' { dotnet publish (Join-Path $root 'src/HashVerifier.App/HashVerifier.App.csproj') @publishArgs }
     Invoke-Step 'Publish CLI' { dotnet publish (Join-Path $root 'src/HashVerifier.Cli/HashVerifier.Cli.csproj') @publishArgs }
 
+    # Release assets carry the version and runtime in their name, e.g. HashVerifier-2.0.0-win-x64.exe.
     $version = (Select-Xml -Path (Join-Path $root 'Directory.Build.props') -XPath '//Version').Node.InnerText
-    $zip = Join-Path $root "artifacts/HashVerifier-$version-$Runtime.zip"
-    Compress-Archive -Path "$output/*" -DestinationPath $zip -Force
+    $artifacts = Join-Path $root 'artifacts'
+    $assets = @(
+        @{ Source = 'HashVerifier.exe'; Name = "HashVerifier-$version-$Runtime.exe" },
+        @{ Source = 'hashverifier-cli.exe'; Name = "hashverifier-cli-$version-$Runtime.exe" }
+    )
+    foreach ($asset in $assets) {
+        Copy-Item (Join-Path $output $asset.Source) (Join-Path $artifacts $asset.Name) -Force
+    }
 
     # Publish checksums next to the release, in the same format HashVerifier understands.
-    $sums = Join-Path $root 'artifacts/SHA256SUMS'
-    Get-ChildItem (Join-Path $root 'artifacts') -Filter '*.zip' |
+    $sums = Join-Path $artifacts 'SHA256SUMS'
+    Get-ChildItem $artifacts -Filter '*.exe' |
         ForEach-Object { '{0}  {1}' -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant(), $_.Name } |
         Set-Content $sums -Encoding utf8NoBOM
 
-    Write-Host "Published to $output" -ForegroundColor Green
-    Write-Host "Package:   $zip" -ForegroundColor Green
+    Write-Host "Release assets in ${artifacts}:" -ForegroundColor Green
+    $assets | ForEach-Object { Write-Host "  $($_.Name)" -ForegroundColor Green }
 }

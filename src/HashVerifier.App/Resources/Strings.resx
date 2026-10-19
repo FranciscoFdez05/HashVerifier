@@ -37,7 +37,7 @@
     <value>Generated hash</value>
   </data>
   <data name="ExpectedHash" xml:space="preserve">
-    <value>Expected hash (hex, "sha256:…" or a line from a SHA256SUMS file)</value>
+    <value>Expected hash</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Browse…</value>
