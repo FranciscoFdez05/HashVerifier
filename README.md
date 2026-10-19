@@ -5,7 +5,9 @@
 <h1 align="center">HashVerifier</h1>
 
 [![CI](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg)](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/FranciscoFdez05/HashVerifier?label=version)](https://github.com/FranciscoFdez05/HashVerifier/releases/latest)
+[![.NET](https://img.shields.io/badge/.NET-10-512BD4.svg)](https://dotnet.microsoft.com/download/dotnet/10.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 HashVerifier calculates and verifies file checksums so you can confirm that a download or a copy has not been altered or corrupted. It ships as a Windows desktop app and as a command-line tool.
 
