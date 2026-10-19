@@ -1,13 +1,18 @@
 [🇪🇸 Español](docs/README-ESP.md) | [🇬🇧 English](README.md)
 
-<p align="center"><img src="docs/images/logo.svg" alt="HashVerifier logo" width="128"></p>
+<p align="center">
+  <img src="docs/images/logo.png" alt="HashVerifier" width="128">
+</p>
 
 <h1 align="center">HashVerifier</h1>
 
-[![CI](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg)](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/github/v/release/FranciscoFdez05/HashVerifier?label=version)](https://github.com/FranciscoFdez05/HashVerifier/releases/latest)
-[![.NET](https://img.shields.io/badge/.NET-10-512BD4.svg)](https://dotnet.microsoft.com/download/dotnet/10.0)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<p align="center">
+  <a href="https://github.com/FranciscoFdez05/HashVerifier/releases/latest"><img src="https://img.shields.io/github/v/release/FranciscoFdez05/HashVerifier?label=version" alt="Latest version"></a>
+  <a href="https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml"><img src="https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/.NET-10-512BD4" alt=".NET 10">
+  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4" alt="Windows 10 | 11">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License: MIT"></a>
+</p>
 
 HashVerifier calculates and verifies file checksums so you can confirm that a download or a copy has not been altered or corrupted. It ships as a Windows desktop app and as a command-line tool.
 

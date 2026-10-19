@@ -1,13 +1,18 @@
 [🇪🇸 Español](README-ESP.md) | [🇬🇧 English](../README.md)
 
-<p align="center"><img src="images/logo.svg" alt="Logo de HashVerifier" width="128"></p>
+<p align="center">
+  <img src="images/logo.png" alt="HashVerifier" width="128">
+</p>
 
 <h1 align="center">HashVerifier</h1>
 
-[![CI](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg)](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml)
-[![Versión](https://img.shields.io/github/v/release/FranciscoFdez05/HashVerifier?label=versi%C3%B3n)](https://github.com/FranciscoFdez05/HashVerifier/releases/latest)
-[![.NET](https://img.shields.io/badge/.NET-10-512BD4.svg)](https://dotnet.microsoft.com/download/dotnet/10.0)
-[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-blue.svg)](../LICENSE)
+<p align="center">
+  <a href="https://github.com/FranciscoFdez05/HashVerifier/releases/latest"><img src="https://img.shields.io/github/v/release/FranciscoFdez05/HashVerifier?label=versi%C3%B3n" alt="Última versión"></a>
+  <a href="https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml"><img src="https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/.NET-10-512BD4" alt=".NET 10">
+  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4" alt="Windows 10 | 11">
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-blue" alt="Licencia: MIT"></a>
+</p>
 
 HashVerifier calcula y verifica checksums de archivos para confirmar que una descarga o una copia no ha sido alterada ni está corrupta. Se distribuye como aplicación de escritorio para Windows y como herramienta de línea de comandos.
 
