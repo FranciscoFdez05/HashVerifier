@@ -1,79 +1,102 @@
 [🇪🇸 Español](README-ESP.md) | [🇬🇧 English](../README.md)
-# 🛠️ HashVerifier
-HashVerifier es una aplicación de Windows Forms en C# que permite calcular y verificar hashes de archivos utilizando varios algoritmos de hash, con una interfaz intuitiva y funcional. Es ideal para verificar la integridad de archivos y asegurarse de que no han sido alterados.
 
-![Vista Principal de HashVerifier](../img/imgPrincipal.png)
+<p align="center"><img src="images/logo.svg" alt="Logo de HashVerifier" width="128"></p>
 
-## 🚀 Descripción
-HashVerifier permite calcular y verificar hashes de archivos utilizando varios algoritmos: **MD5, SHA-1, SHA-256, SHA-384** y **SHA-512**.
+<h1 align="center">HashVerifier</h1>
+
+[![CI](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml/badge.svg)](https://github.com/FranciscoFdez05/HashVerifier/actions/workflows/ci.yml)
+[![Licencia: GPL v3](https://img.shields.io/badge/Licencia-GPLv3-blue.svg)](../LICENSE)
+
+HashVerifier calcula y verifica checksums de archivos para confirmar que una descarga o una copia no ha sido alterada ni está corrupta. Se distribuye como aplicación de escritorio para Windows y como herramienta de línea de comandos.
+
+![Ventana principal de HashVerifier](images/main-es.png)
 
 ## ✨ Características
-- 📂 Selección de archivo para calcular su hash.
-- 🔍 Selección del algoritmo de hash.
-- ✅ Verificar si el hash calculado coincide con un hash dado.
-- 👤 Interfaz gráfica de usuario simple y fácil de usar.
 
-## 🖥️ Requisitos
-- .NET 8.0 o superior
+- **Algoritmos:** MD5, SHA-1, SHA-256, SHA-384, SHA-512 y SHA3-256/384/512 (si el sistema operativo los admite).
+- **Fluida con archivos grandes:** el cálculo se hace en segundo plano, con barra de progreso y botón **Cancelar**.
+- **Acepta el formato que publique cada sitio:** un hash suelto, `sha256:…` o una línea copiada de un archivo `SHA256SUMS` (GNU `hash  archivo` o BSD `SHA256 (archivo) = hash`).
+- **Detecta el algoritmo** según la longitud o el prefijo del hash esperado.
+- **Arrastrar y soltar** archivos sobre la ventana, o abrir un archivo con `HashVerifier.exe <archivo>`.
+- Interfaz en **español e inglés** (sigue el idioma del sistema y se puede cambiar desde la ventana).
+- **Herramienta de línea de comandos** para scripts y CI, compatible con `sha256sum -c`.
 
-## ⚙️ Instalación
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/FranciscoFdez05/HashVerifier.git
-   ```
-3. Navega al directorio del proyecto: `cd HashVerifier`
+## 📥 Descarga
 
-### Compilación en Visual Studio
-1. Abre el archivo del proyecto (`HashVerifier.sln`) en Visual Studio.
-2. Compila la aplicación seleccionando **Build > Build Solution**.
-3. Ejecuta la aplicación desde el entorno de Visual Studio o mediante el archivo `.exe` generado en la carpeta `bin`.
+Descarga la última versión desde [Releases](https://github.com/FranciscoFdez05/HashVerifier/releases). Los ejecutables son autocontenidos, así que no hace falta instalar .NET.
 
-### Compilación desde la línea de comandos (usando .NET CLI)
-1. Asegúrate de tener .NET SDK instalado. Puedes verificarlo con: `dotnet --version`
-2. En el directorio del proyecto, compila la aplicación con el siguiente comando: `dotnet build`
-3. Para ejecutar la aplicación después de compilarla, usa: `dotnet run --project HashVerifier`
-   O, si prefieres ejecutarla desde el archivo compilado, navega a la carpeta `bin/Debug/net472` (o `Release` si usaste la opción de compilación de release) y ejecuta el archivo `.exe` correspondiente.
+## 🖥️ Uso de la aplicación
 
-### 📋 Calcular un hash 
-1. Selecciona el archivo que deseas hashear utilizando el botón **"Source file"**.
-![Selección de Archivo y Algoritmo](../img/imgExam1.png)
+**Calcular un hash**
+1. Elige el **Algoritmo de hash** (SHA-256 por defecto).
+2. Selecciona un archivo con **Examinar…** o arrástralo a la ventana.
+3. Pulsa **Calcular**. El hash se muestra y se copia al portapapeles.
 
-2. Selecciona el algoritmo de hash en el menú desplegable **"Hash algorithm"**.   
-![Selección de Archivo y Algoritmo](../img/imgAlgoritmo.png)
-   
-3. Haz clic en **"Hash"** para calcular el hash del archivo seleccionado.
-![Cálculo del Hash](../img/imgCalcHash.png)
+**Verificar un archivo**
+1. Selecciona el archivo a verificar.
+2. Pega el hash esperado (botón **Pegar**). Si corresponde a otro algoritmo, HashVerifier cambia a él automáticamente.
+3. Pulsa **Verificar**. El resultado aparece en verde (coinciden) o en rojo (no coinciden).
 
-4. El hash calculado se muestra y se copia en el portapapeles
-![imgHashCalc.png](../img/imgHashCalc.png)
+> MD5 y SHA-1 se mantienen por compatibilidad con checksums antiguos, pero no son resistentes a colisiones. Usa SHA-256 o superior siempre que puedas.
 
-### 📋 Verificar un hash
-1. Para verificar un hash, selecciona el fichero fuente (El fichero que desea calcular el hash) **"Check file"**.
-![Verificación de Hash](../img/imgFuente.png) 
+## ⌨️ Línea de comandos
 
-2. Para verificar el hash, debes copiar el hash en el `text box` (dentro del rectangular rojo)
-![Verificación de Hash](../img/imgHash.png) 
+```text
+hashverifier-cli hash <archivo>... [-a <algoritmo>]          Muestra el hash de cada archivo
+hashverifier-cli verify <archivo> <hash> [-a <algoritmo>]    Compara un archivo con un hash esperado
+hashverifier-cli check <archivo-checksums> [-a <algoritmo>]  Verifica cada entrada de un archivo *SUMS
+hashverifier-cli algorithms                                  Lista los algoritmos disponibles
+```
 
-3. Selecciona el algoritmo del hash en el menú desplegable **"Hash algorithm"**.
-![Selección de Archivo y Algoritmo](../img/imgAlgoritmo2.png)
+```powershell
+hashverifier-cli hash ubuntu.iso                       # SHA-256 por defecto
+hashverifier-cli verify ubuntu.iso sha256:3a98…        # algoritmo deducido del hash
+hashverifier-cli check SHA256SUMS                      # equivalente a `sha256sum -c`
+```
 
-4. Para terminar la verificación debes darle a **"Verify"** y te mostrara el resultado en una ventana emergente.
-- `Hash match` Significa que los hashes coinciden
-![Verificación de Hash](../img/imgHashVerifi.png)
-- `Error: hashes do not match` Significa q no coinciden los hashes
-![Verificación de Hash](../img/imgErrorHash.png)
+Códigos de salida: `0` correcto, `1` los hashes no coinciden, `2` error.
 
-###  🗑️ Limpiar
-- Para limpiar la information puedes pulsar el el botón (`clear`)
-![imgClear.png](../img/imgClear.png)
+## 🏗️ Compilar desde el código fuente
+
+Requisitos: [SDK de .NET 10](https://dotnet.microsoft.com/download) y Windows (para la aplicación de escritorio).
+
+```powershell
+git clone https://github.com/FranciscoFdez05/HashVerifier.git
+cd HashVerifier
+
+./scripts/build.ps1                    # restaura, compila y ejecuta las pruebas
+./scripts/build.ps1 -Publish           # además genera ejecutables de un solo archivo en ./artifacts
+dotnet run --project src/HashVerifier.App
+```
+
+También puedes abrir `HashVerifier.sln` en Visual Studio 2022 (17.12 o superior).
+
+## 📁 Estructura del proyecto
+
+```text
+HashVerifier/
+├── src/
+│   ├── HashVerifier.Core/    # Cálculo de hashes y lectura de checksums (biblioteca multiplataforma)
+│   ├── HashVerifier.App/     # Aplicación de escritorio Windows Forms (recursos en español/inglés)
+│   └── HashVerifier.Cli/     # Herramienta de línea de comandos
+├── tests/
+│   └── HashVerifier.Core.Tests/  # Pruebas con xUnit
+├── scripts/build.ps1         # Compilar, probar y publicar
+├── .github/workflows/ci.yml  # CI y releases automáticas con etiquetas v*
+└── docs/                     # README en español y capturas
+```
+
 ## 🤝 Contribuir
-Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
+
 1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-feature`).
-3. Realiza los cambios necesarios y haz commit (`git commit -am 'Añadir nueva feature'`).
-4. Haz push a la rama (`git push origin feature/nueva-feature`).
-5. Abre un Pull Request.
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Comprueba que `./scripts/build.ps1` pasa correctamente.
+4. Haz commit y push, y abre un Pull Request.
+
+## 📄 Licencia
+
+[GNU GPL v3](../LICENSE)
 
 ---
 
-**Developed with ❤️ by [Francisco](https://github.com/FranciscoFdez05)**
+**Desarrollado con ❤️ por [Francisco](https://github.com/FranciscoFdez05)**

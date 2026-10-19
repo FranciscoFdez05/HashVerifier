@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>HashVerifier</value>
+  </data>
+  <data name="Algorithm" xml:space="preserve">
+    <value>Algoritmo de hash</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="GenerateGroup" xml:space="preserve">
+    <value>Generar hash</value>
+  </data>
+  <data name="VerifyGroup" xml:space="preserve">
+    <value>Verificar archivo</value>
+  </data>
+  <data name="FileToHash" xml:space="preserve">
+    <value>Archivo a calcular (o arrástralo aquí)</value>
+  </data>
+  <data name="FileToVerify" xml:space="preserve">
+    <value>Archivo a verificar (o arrástralo aquí)</value>
+  </data>
+  <data name="GeneratedHash" xml:space="preserve">
+    <value>Hash generado</value>
+  </data>
+  <data name="ExpectedHash" xml:space="preserve">
+    <value>Hash esperado (hex, "sha256:…" o una línea de un archivo SHA256SUMS)</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Examinar…</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calcular</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Pegar</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Verificar</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="SelectFileTitle" xml:space="preserve">
+    <value>Selecciona un archivo</value>
+  </data>
+  <data name="AllFilesFilter" xml:space="preserve">
+    <value>Todos los archivos|*.*</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Listo</value>
+  </data>
+  <data name="StatusHashing" xml:space="preserve">
+    <value>Calculando {0} de {1}…</value>
+  </data>
+  <data name="StatusHashed" xml:space="preserve">
+    <value>{0} calculado en {1:0.00} s y copiado al portapapeles</value>
+  </data>
+  <data name="StatusVerified" xml:space="preserve">
+    <value>Verificado con {0} en {1:0.00} s</value>
+  </data>
+  <data name="StatusCopied" xml:space="preserve">
+    <value>Hash copiado al portapapeles</value>
+  </data>
+  <data name="StatusCancelled" xml:space="preserve">
+    <value>Operación cancelada</value>
+  </data>
+  <data name="StatusAlgorithmDetected" xml:space="preserve">
+    <value>Algoritmo cambiado a {0} según el hash esperado</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>HashVerifier</value>
+  </data>
+  <data name="ErrorSelectFile" xml:space="preserve">
+    <value>Selecciona primero un archivo.</value>
+  </data>
+  <data name="ErrorFileNotFound" xml:space="preserve">
+    <value>No se encuentra el archivo:
+{0}</value>
+  </data>
+  <data name="ErrorEnterHash" xml:space="preserve">
+    <value>Escribe o pega el hash esperado.</value>
+  </data>
+  <data name="ErrorInvalidHash" xml:space="preserve">
+    <value>El hash esperado no es hexadecimal válido.</value>
+  </data>
+  <data name="ErrorLengthMismatch" xml:space="preserve">
+    <value>El hash esperado tiene {0} caracteres hexadecimales, pero {1} produce {2}.</value>
+  </data>
+  <data name="ErrorGeneric" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="ErrorClipboardEmpty" xml:space="preserve">
+    <value>El portapapeles no contiene texto.</value>
+  </data>
+  <data name="ErrorNothingToCopy" xml:space="preserve">
+    <value>No hay ningún hash que copiar.</value>
+  </data>
+  <data name="ResultMatch" xml:space="preserve">
+    <value>✔ Los hashes coinciden</value>
+  </data>
+  <data name="ResultMismatch" xml:space="preserve">
+    <value>✘ Los hashes NO coinciden</value>
+  </data>
+  <data name="LegacyAlgorithmHint" xml:space="preserve">
+    <value>{0} no es resistente a colisiones; usa SHA-256 o superior cuando sea posible.</value>
+  </data>
+</root>

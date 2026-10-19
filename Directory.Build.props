@@ -1,0 +1,33 @@
+<Project>
+
+  <!-- Settings shared by every project in the repository. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <SatelliteResourceLanguages>en;es</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!-- Product metadata -->
+  <PropertyGroup>
+    <Version>2.0.0</Version>
+    <Product>HashVerifier</Product>
+    <Authors>Francisco</Authors>
+    <Copyright>Copyright © Francisco</Copyright>
+    <Description>Calculate and verify file checksums (MD5, SHA-1, SHA-2, SHA-3).</Description>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/FranciscoFdez05/HashVerifier</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <!-- Strong-name signing -->
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)MyKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+</Project>
